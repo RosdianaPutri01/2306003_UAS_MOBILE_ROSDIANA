@@ -1,0 +1,27 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
+/// Tugasnya cuma satu: simpan/ambil/hapus token JWT di penyimpanan lokal HP.
+/// Dipakai untuk fitur auto-login (Soal 1B).
+class StorageService {
+  static const String _tokenKey = 'access_token';
+
+  static Future<void> saveToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_tokenKey, token);
+  }
+
+  static Future<String?> getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_tokenKey);
+  }
+
+  static Future<bool> hasToken() async {
+    final token = await getToken();
+    return token != null && token.isNotEmpty;
+  }
+
+  static Future<void> clearToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_tokenKey);
+  }
+}
