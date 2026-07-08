@@ -88,55 +88,64 @@ Selain itu tersedia dashboard admin yang dapat digunakan untuk melihat statistik
 
 ## Register
 
-![Register](screenshots/register.png)
+<img width="653" height="912" alt="image" src="https://github.com/user-attachments/assets/38afd622-9ee0-433c-bda6-34fd5dc60c27" />
+
 
 ---
 
 ## Katalog Produk
 
-![Katalog Produk](screenshots/katalog_produk.png)
+<img width="658" height="912" alt="image" src="https://github.com/user-attachments/assets/710eb225-bf05-4d77-aaf3-3f468e701c9c" />
+
 
 ---
 
 ## Keranjang
 
-![Keranjang](screenshots/keranjang.png)
+<img width="652" height="911" alt="image" src="https://github.com/user-attachments/assets/18fd90d6-faab-4cd0-8ba4-764716b9804c" />
+
 
 ---
 
 ## Riwayat Pesanan
 
-![Riwayat Pesanan](screenshots/riwayat_pesanan.png)
+<img width="651" height="905" alt="image" src="https://github.com/user-attachments/assets/dbec0e59-7d08-4719-945d-56f757158f07" />
+
 
 ---
 
 ## Profil
 
-![Profil](screenshots/profil.png)
+<img width="658" height="911" alt="image" src="https://github.com/user-attachments/assets/52657667-ce9a-4427-9645-ead59dfea82f" />
+
 
 ---
 
 ## Edit Profil
 
-![Edit Profil](screenshots/edit_profil.png)
+<img width="658" height="913" alt="image" src="https://github.com/user-attachments/assets/b81981cf-1278-493f-ab4a-52968d218cbf" />
+
 
 ---
 
 ## Dashboard Admin
 
-![Dashboard Admin](screenshots/admin_dashboard.png)
+<img width="652" height="915" alt="image" src="https://github.com/user-attachments/assets/2af74258-b78b-4074-970f-d5c261a95512" />
+
 
 ---
 
 ## Manajemen Pesanan Admin
 
-![Manajemen Pesanan](screenshots/manajemen_pesanan.png)
+<img width="653" height="903" alt="image" src="https://github.com/user-attachments/assets/c9c1c25b-6c2e-4ade-8394-8d398a2c3f32" />
+
 
 ---
 
 ## Logout Admin
 
-![Logout Admin](screenshots/logout_admin.png)
+<img width="657" height="1013" alt="image" src="https://github.com/user-attachments/assets/3e992093-dc94-4dc9-adf4-17189a9b590f" />
+
 
 ---
 
