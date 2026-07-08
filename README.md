@@ -1,120 +1,242 @@
-# UAS Praktikum Pemrograman Mobile — E-Commerce App
+# 🛒 UAS Praktikum Pemrograman Mobile - E-Commerce App
 
-## Identitas
+Aplikasi E-Commerce berbasis **Flutter** yang menggunakan **REST API**, **Node.js**, dan **Supabase** sebagai backend dan database.
 
-| | |
-|---|---|
-| **Nama** | _(Rosdiana Putri Purwani)_ |
-| **NIM** | _(2306003)_ |
-| **Kelas** | _(A)_ |
+---
+
+# 👨‍🎓 Identitas Mahasiswa
+
+| Keterangan | Data |
+|------------|------|
+| **Nama** | Rosdiana Putri Purwani |
+| **NIM** | 2306003 |
 | **Mata Kuliah** | Praktikum Pemrograman Mobile |
-| **Tahun Akademik** | Genap 2025/2026 |
+| **Universitas** | Institut Teknologi Garut |
 
 ---
 
-## Deskripsi Aplikasi
+# 📖 Deskripsi Aplikasi
 
-Aplikasi E-Commerce berbasis Flutter yang mengkonsumsi REST API (backend Node.js + Supabase) untuk fitur autentikasi, katalog produk, keranjang belanja, checkout, riwayat pesanan, dan dashboard admin.
+Aplikasi ini merupakan sistem **E-Commerce** yang dikembangkan menggunakan Flutter sebagai frontend, Node.js sebagai backend, dan Supabase sebagai database.
 
----
+Aplikasi memungkinkan pengguna melakukan proses belanja secara online mulai dari registrasi akun, melihat katalog produk, menambahkan produk ke keranjang, checkout, melihat riwayat pesanan, hingga mengelola profil pengguna.
 
-## Screenshot Aplikasi
-
-> Tempel screenshot di sini (minimal 5 halaman). Cara nambahin gambar di GitHub README:
-> 1. Buat folder `screenshots/` di root project
-> 2. Simpan screenshot HP kamu ke folder itu (misal `login.png`, `katalog.png`, dst)
-> 3. Tampilkan pakai format: `![Nama Halaman](screenshots/nama_file.png)`
-
-| Halaman | Screenshot |
-|---|---|
-| Login | ![Login](screenshots/login.png) |
-| Katalog Produk | ![Katalog](screenshots/katalog.png) |
-| Detail Produk | ![Detail Produk](screenshots/detail_produk.png) |
-| Keranjang | ![Keranjang](screenshots/keranjang.png) |
-| Checkout | ![Checkout](screenshots/checkout.png) |
-| Riwayat Pesanan | ![Riwayat Pesanan](screenshots/riwayat_pesanan.png) |
-| Admin Dashboard | ![Admin Dashboard](screenshots/admin_dashboard.png) |
+Selain itu tersedia dashboard admin yang dapat digunakan untuk melihat statistik aplikasi dan mengelola status pesanan pelanggan.
 
 ---
 
-## Cara Menjalankan Aplikasi
+# ✨ Fitur Aplikasi
 
-### 1. Persiapan
+## 👤 User
+
+- Login
+- Register akun
+- Logout
+- Melihat katalog produk
+- Pencarian produk
+- Filter kategori produk
+- Detail produk
+- Menambahkan produk ke keranjang
+- Mengubah jumlah produk
+- Menghapus produk dari keranjang
+- Checkout
+- Riwayat pesanan
+- Melihat status pesanan
+- Edit profil
+- Update nomor telepon
+
+---
+
+## 👨‍💼 Admin
+
+- Dashboard Statistik
+- Total Produk
+- Total Pesanan
+- Total Pendapatan
+- Total Pelanggan
+- Manajemen Pesanan
+- Filter Status Pesanan
+- Update Status Pesanan
+- Logout
+
+---
+
+# 🛠️ Teknologi
+
+### Frontend
+
+- Flutter
+- Dart
+- Provider
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- Supabase PostgreSQL
+
+### API
+
+- REST API
+
+---
+
+# 📱 Screenshot Aplikasi
+
+## Register
+
+![Register](screenshots/register.png)
+
+---
+
+## Katalog Produk
+
+![Katalog Produk](screenshots/katalog_produk.png)
+
+---
+
+## Keranjang
+
+![Keranjang](screenshots/keranjang.png)
+
+---
+
+## Riwayat Pesanan
+
+![Riwayat Pesanan](screenshots/riwayat_pesanan.png)
+
+---
+
+## Profil
+
+![Profil](screenshots/profil.png)
+
+---
+
+## Edit Profil
+
+![Edit Profil](screenshots/edit_profil.png)
+
+---
+
+## Dashboard Admin
+
+![Dashboard Admin](screenshots/admin_dashboard.png)
+
+---
+
+## Manajemen Pesanan Admin
+
+![Manajemen Pesanan](screenshots/manajemen_pesanan.png)
+
+---
+
+## Logout Admin
+
+![Logout Admin](screenshots/logout_admin.png)
+
+---
+
+# 🚀 Cara Menjalankan Aplikasi
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/RosdianaPutri01/2306003_UAS_MOBILE_ROSDIANA.git
+```
+
+## 2. Masuk ke Folder Project
+
+```bash
+cd 2306003_UAS_MOBILE_ROSDIANA
+```
+
+## 3. Install Dependency Flutter
+
 ```bash
 flutter pub get
 ```
 
-### 2. Konfigurasi Base URL API
-Buka `lib/utils/constants.dart`, 
+## 4. Install Dependency Backend
 
-### 3. Jalankan
+```bash
+cd backend
+npm install
+```
+
+## 5. Jalankan Backend
+
+```bash
+npm start
+```
+
+## 6. Jalankan Flutter
+
 ```bash
 flutter run
 ```
 
-### 4. Build APK Release
-```bash
-flutter build apk --release
-```
-File APK ada di `build/app/outputs/flutter-apk/app-release.apk`
-
-### Akun untuk testing
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@admin.com | admin123 |
-| Customer | mahasiswa@test.com | test123456 |
+> **Catatan**
+>
+> Jika menggunakan emulator Android atau perangkat fisik, ubah `baseUrl` pada file konfigurasi API agar sesuai dengan alamat IP server backend.
 
 ---
 
-## Daftar Fitur yang Diimplementasikan
+# 📂 Struktur Project
 
-### Soal 1 — Autentikasi & Profil (15 poin)
-- [x] Halaman Register — validasi nama/email/password, redirect ke Login setelah sukses
-- [x] Halaman Login — simpan token JWT, auto-login, mode Guest (bisa browsing tanpa login)
-- [x] Halaman Profil — lihat & edit profil, logout
-
-### Soal 2 — Katalog Produk (25 poin)
-- [x] Daftar Produk — GridView responsif, infinite scroll pagination, format Rupiah
-- [x] Pencarian & Filter — search by nama, filter kategori (chip), sorting (termurah/termahal/terbaru)
-- [x] Detail Produk — info lengkap, rating & ulasan, form tulis ulasan, tombol tambah ke keranjang
-
-### Soal 3 — Keranjang Belanja (20 poin)
-- [x] Halaman Keranjang — list item dengan gambar/harga/qty/subtotal, grand total
-- [x] Interaksi Keranjang — tombol +/-, hapus item, kosongkan keranjang (dengan konfirmasi), badge counter, empty state
-
-### Soal 4 — Checkout & Riwayat Pesanan (25 poin)
-- [x] Checkout — ringkasan pesanan, form alamat & catatan, dialog konfirmasi, halaman sukses
-- [x] Riwayat Pesanan — list dengan pagination, warna berbeda tiap status
-- [x] Detail Pesanan — status, alamat, catatan, tanggal, daftar item, total
-
-### Soal 5 — Admin Dashboard (Opsi A) (15 poin)
-- [x] Halaman admin terpisah dari user biasa
-- [x] Statistik — total produk/pesanan/pendapatan/pelanggan/pesanan pending
-- [x] Produk Terlaris — bar chart
-- [x] Manajemen Pesanan — filter status, ubah status dengan validasi transisi
+```
+2306003_UAS_MOBILE_ROSDIANA
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── utils/
+│   ├── server.js
+│   └── package.json
+│
+├── lib/
+│   ├── models/
+│   ├── screens/
+│   ├── providers/
+│   ├── services/
+│   ├── widgets/
+│   ├── utils/
+│   └── main.dart
+│
+├── assets/
+├── screenshots/
+├── pubspec.yaml
+└── README.md
+```
 
 ---
 
-## Struktur Folder
+# ✅ Hasil Implementasi
 
-```
-lib/
- ├─ main.dart
- ├─ models/          # Bentuk data (User, Product, Cart, Order, dll)
- ├─ services/        # Logika API & state management (Provider)
- ├─ screens/         # Semua halaman UI
- │   ├─ auth/
- │   ├─ products/
- │   ├─ cart/
- │   ├─ checkout/
- │   ├─ orders/
- │   ├─ admin/
- │   └─ home/
- ├─ widgets/         # Widget reusable
- └─ utils/           # Konstanta, formatter, helper
-```
+Aplikasi berhasil diimplementasikan menggunakan Flutter dengan arsitektur REST API. Seluruh proses utama seperti autentikasi pengguna, katalog produk, keranjang belanja, checkout, riwayat pesanan, pengelolaan profil, dashboard admin, dan manajemen pesanan telah berjalan sesuai kebutuhan aplikasi.
 
-## Package yang Digunakan
-`http`, `provider`, `shared_preferences`, `cached_network_image`, `intl`, `flutter_rating_bar`, `shimmer`, `fl_chart`
+---
 
+# 📌 Repository
 
+Repository GitHub:
+
+**https://github.com/RosdianaPutri01/2306003_UAS_MOBILE_ROSDIANA**
+
+---
+
+# 👩‍💻 Author
+
+**Rosdiana Putri Purwani**
+
+**NIM : 2306003**
+
+Institut Teknologi Garut
+
+Praktikum Pemrograman Mobile
