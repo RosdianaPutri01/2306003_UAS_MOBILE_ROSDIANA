@@ -1,79 +1,120 @@
-# UAS Mobile — Setup dari Nol
+# UAS Praktikum Pemrograman Mobile — E-Commerce App
 
-## 1. Buat project Flutter baru
+## Identitas
 
-```bash
-flutter create uas_mobile
-cd uas_mobile
-```
+| | |
+|---|---|
+| **Nama** | _(Rosdiana Putri Purwani)_ |
+| **NIM** | _(2306003)_ |
+| **Kelas** | _(A)_ |
+| **Mata Kuliah** | Praktikum Pemrograman Mobile |
+| **Tahun Akademik** | Genap 2025/2026 |
 
-Ini bikin folder `uas_mobile` isi file bawaan Flutter (`lib/main.dart`, `pubspec.yaml`, `android/`, `ios/`, dll).
+---
 
-## 2. Timpa dengan file dari folder ini
+## Deskripsi Aplikasi
 
-Download folder yang saya kasih, lalu **copy semua isi `lib/` dan `pubspec.yaml` di sini**, TIMPA yang ada di project barumu. Struktur akhirnya harus seperti ini:
+Aplikasi E-Commerce berbasis Flutter yang mengkonsumsi REST API (backend Node.js + Supabase) untuk fitur autentikasi, katalog produk, keranjang belanja, checkout, riwayat pesanan, dan dashboard admin.
 
-```
-uas_mobile/
- ├─ lib/
- │   ├─ main.dart                     # Entry point + pengecekan auto-login
- │   ├─ models/
- │   │   └─ user.dart                 # Bentuk data User
- │   ├─ services/
- │   │   ├─ api_service.dart          # Satu-satunya file yang panggil http
- │   │   ├─ storage_service.dart      # Simpan token di HP
- │   │   └─ auth_provider.dart        # State management modul Auth
- │   ├─ screens/
- │   │   ├─ auth/
- │   │   │   ├─ register_screen.dart
- │   │   │   ├─ login_screen.dart
- │   │   │   └─ profile_screen.dart
- │   │   └─ home/
- │   │       └─ home_screen.dart      # Shell bottom-nav (tab lain nanti Soal 2-4)
- │   └─ utils/
- │       └─ constants.dart            # Base URL & path endpoint
- ├─ test/
- │   └─ widget_test.dart
- └─ pubspec.yaml
-```
+---
 
-(Folder `android/`, `ios/`, `web/`, dll biarkan bawaan dari `flutter create`, tidak usah diubah.)
+## Screenshot Aplikasi
 
-## 3. Install dependency
+> Tempel screenshot di sini (minimal 5 halaman). Cara nambahin gambar di GitHub README:
+> 1. Buat folder `screenshots/` di root project
+> 2. Simpan screenshot HP kamu ke folder itu (misal `login.png`, `katalog.png`, dst)
+> 3. Tampilkan pakai format: `![Nama Halaman](screenshots/nama_file.png)`
 
+| Halaman | Screenshot |
+|---|---|
+| Login | ![Login](screenshots/login.png) |
+| Katalog Produk | ![Katalog](screenshots/katalog.png) |
+| Detail Produk | ![Detail Produk](screenshots/detail_produk.png) |
+| Keranjang | ![Keranjang](screenshots/keranjang.png) |
+| Checkout | ![Checkout](screenshots/checkout.png) |
+| Riwayat Pesanan | ![Riwayat Pesanan](screenshots/riwayat_pesanan.png) |
+| Admin Dashboard | ![Admin Dashboard](screenshots/admin_dashboard.png) |
+
+---
+
+## Cara Menjalankan Aplikasi
+
+### 1. Persiapan
 ```bash
 flutter pub get
 ```
 
-## 4. WAJIB — atur base URL dulu
+### 2. Konfigurasi Base URL API
+Buka `lib/utils/constants.dart`, 
 
-Buka `lib/utils/constants.dart`. Di situ ada 3 opsi base URL (online / lokal-emulator / lokal-HP-fisik). Aktifkan salah satu sesuai server yang kamu pakai sekarang. Baca komentar di file itu.
-
-## 5. Jalankan
-
-Pilih Android Emulator sebagai device (bukan Chrome — web sering bermasalah dan hasil akhir tugas ini kan APK):
-
+### 3. Jalankan
 ```bash
 flutter run
 ```
 
-## Kenapa strukturnya dipisah begini? (biar kamu paham, bukan hafal)
+### 4. Build APK Release
+```bash
+flutter build apk --release
+```
+File APK ada di `build/app/outputs/flutter-apk/app-release.apk`
 
-| Folder | Isi | Aturan |
+### Akun untuk testing
+| Role | Email | Password |
 |---|---|---|
-| `models/` | Bentuk data (User, nanti Product, Order, dst) | Tidak boleh ada `http` atau widget di sini |
-| `services/` | Logika: manggil API, simpan token, state management | Tidak boleh ada widget (`Widget build()`) di sini |
-| `screens/` | Tampilan UI | Tidak boleh panggil `http` langsung — selalu lewat `services` |
-| `utils/` | Konstanta & helper kecil (format Rupiah, dll nanti) | Dipakai lapisan manapun |
+| Admin | admin@admin.com | admin123 |
+| Customer | mahasiswa@test.com | test123456 |
 
-Alurnya selalu: **screen** memanggil fungsi di **service**, **service** memanggil `ApiService`, `ApiService` yang urus HTTP request dan baca format response `{success, message, data}` dari backend, hasilnya dibungkus jadi **model**, lalu dikembalikan ke screen untuk ditampilkan.
+---
 
-## Yang sudah jadi (Soal 1 — 15 poin)
+## Daftar Fitur yang Diimplementasikan
 
-- [x] Register — validasi form, panggil API, redirect ke Login
-- [x] Login — simpan token, auto-login, redirect ke Home
-- [x] Profile — tampilkan data, edit nama/telepon, logout
+### Soal 1 — Autentikasi & Profil (15 poin)
+- [x] Halaman Register — validasi nama/email/password, redirect ke Login setelah sukses
+- [x] Halaman Login — simpan token JWT, auto-login, mode Guest (bisa browsing tanpa login)
+- [x] Halaman Profil — lihat & edit profil, logout
 
-## Sebelum lanjut ke Soal 2
+### Soal 2 — Katalog Produk (25 poin)
+- [x] Daftar Produk — GridView responsif, infinite scroll pagination, format Rupiah
+- [x] Pencarian & Filter — search by nama, filter kategori (chip), sorting (termurah/termahal/terbaru)
+- [x] Detail Produk — info lengkap, rating & ulasan, form tulis ulasan, tombol tambah ke keranjang
 
-Jalankan dulu, coba Register lalu Login pakai server kamu (online atau lokal). Kalau ada error, screenshot pesan error dan log `flutter run`, kirim ke saya biar dicek dulu sebelum lanjut ke modul berikutnya.
+### Soal 3 — Keranjang Belanja (20 poin)
+- [x] Halaman Keranjang — list item dengan gambar/harga/qty/subtotal, grand total
+- [x] Interaksi Keranjang — tombol +/-, hapus item, kosongkan keranjang (dengan konfirmasi), badge counter, empty state
+
+### Soal 4 — Checkout & Riwayat Pesanan (25 poin)
+- [x] Checkout — ringkasan pesanan, form alamat & catatan, dialog konfirmasi, halaman sukses
+- [x] Riwayat Pesanan — list dengan pagination, warna berbeda tiap status
+- [x] Detail Pesanan — status, alamat, catatan, tanggal, daftar item, total
+
+### Soal 5 — Admin Dashboard (Opsi A) (15 poin)
+- [x] Halaman admin terpisah dari user biasa
+- [x] Statistik — total produk/pesanan/pendapatan/pelanggan/pesanan pending
+- [x] Produk Terlaris — bar chart
+- [x] Manajemen Pesanan — filter status, ubah status dengan validasi transisi
+
+---
+
+## Struktur Folder
+
+```
+lib/
+ ├─ main.dart
+ ├─ models/          # Bentuk data (User, Product, Cart, Order, dll)
+ ├─ services/        # Logika API & state management (Provider)
+ ├─ screens/         # Semua halaman UI
+ │   ├─ auth/
+ │   ├─ products/
+ │   ├─ cart/
+ │   ├─ checkout/
+ │   ├─ orders/
+ │   ├─ admin/
+ │   └─ home/
+ ├─ widgets/         # Widget reusable
+ └─ utils/           # Konstanta, formatter, helper
+```
+
+## Package yang Digunakan
+`http`, `provider`, `shared_preferences`, `cached_network_image`, `intl`, `flutter_rating_bar`, `shimmer`, `fl_chart`
+
+
